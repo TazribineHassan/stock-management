@@ -57,9 +57,36 @@ namespace stock_management.Services.Implementation
         public Sell updateSell(Sell sell)
         {
             Sell oldSell = context.Sells.Where(oldSell => oldSell.Id == sell.Id).FirstOrDefault();
-            if (sell == null)
+            if (oldSell == null)
             {
                 throw new Exception("Sell not found!");
+            }
+
+            oldSell.Article = articleService.getArticle(oldSell.ArticleId);
+
+            if(oldSell.Article.Id == sell.Article.Id)
+            {
+                Article article = oldSell.Article;
+                article.Quantity = article.Quantity + oldSell.Quantity - sell.Quantity;
+
+                if (article.Quantity < 0)
+                    throw new Exception("stock insuffisant");
+                
+                articleService.updateArticle(article);
+            }
+            else
+            {
+                Article article = oldSell.Article;
+                article.Quantity = article.Quantity + oldSell.Quantity;
+                articleService.updateArticle(article);
+
+                var newArticle = articleService.getArticle(sell.Article.Id);
+
+                if (sell.Quantity > newArticle.Quantity)
+                    throw new Exception("Insuffisant stock");
+
+                newArticle.Quantity = newArticle.Quantity - sell.Quantity;
+                articleService.updateArticle(newArticle);
             }
 
             oldSell.Quantity = sell.Quantity;
