@@ -36,7 +36,7 @@ namespace stock_management.Pages
             }
             clearBoxes();
         }
-
+         
         private void goBack_Click(object sender, EventArgs e)
         {
             this.Close();

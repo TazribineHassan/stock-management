@@ -33,6 +33,14 @@
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ARTICLE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ArticleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArticlesComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,8 +48,6 @@
             this.QuantityTextBox = new System.Windows.Forms.NumericUpDown();
             this.totalLabel = new System.Windows.Forms.Label();
             this.reload_btn = new FontAwesome.Sharp.IconButton();
-            this.searchInput = new System.Windows.Forms.TextBox();
-            this.search = new FontAwesome.Sharp.IconButton();
             this.delete = new FontAwesome.Sharp.IconButton();
             this.cancel_btn = new FontAwesome.Sharp.IconButton();
             this.add_btn = new FontAwesome.Sharp.IconButton();
@@ -51,14 +57,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.disponibleLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ARTICLE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ArticleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -146,8 +144,60 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.updateSell);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // ARTICLE_ID
+            // 
+            this.ARTICLE_ID.HeaderText = "ARTICLE_ID";
+            this.ARTICLE_ID.Name = "ARTICLE_ID";
+            this.ARTICLE_ID.ReadOnly = true;
+            this.ARTICLE_ID.Visible = false;
+            // 
+            // DATE
+            // 
+            this.DATE.HeaderText = "Date";
+            this.DATE.Name = "DATE";
+            this.DATE.ReadOnly = true;
+            // 
+            // Ref
+            // 
+            this.Ref.HeaderText = "Article ref";
+            this.Ref.Name = "Ref";
+            this.Ref.ReadOnly = true;
+            // 
+            // ArticleName
+            // 
+            this.ArticleName.HeaderText = "Article";
+            this.ArticleName.Name = "ArticleName";
+            this.ArticleName.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Prix";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantite";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
             // ArticlesComboBox
             // 
+            this.ArticlesComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ArticlesComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ArticlesComboBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ArticlesComboBox.FormattingEnabled = true;
             this.ArticlesComboBox.Location = new System.Drawing.Point(127, 24);
@@ -201,6 +251,7 @@
             this.QuantityTextBox.Name = "QuantityTextBox";
             this.QuantityTextBox.Size = new System.Drawing.Size(148, 27);
             this.QuantityTextBox.TabIndex = 9;
+            this.QuantityTextBox.ValueChanged += new System.EventHandler(this.QuantityTextBoxChanged);
             // 
             // totalLabel
             // 
@@ -233,35 +284,6 @@
             this.reload_btn.TabIndex = 28;
             this.reload_btn.UseVisualStyleBackColor = false;
             this.reload_btn.Click += new System.EventHandler(this.refreshButtonClicked);
-            // 
-            // searchInput
-            // 
-            this.searchInput.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchInput.Location = new System.Drawing.Point(362, 127);
-            this.searchInput.Name = "searchInput";
-            this.searchInput.Size = new System.Drawing.Size(148, 29);
-            this.searchInput.TabIndex = 27;
-            // 
-            // search
-            // 
-            this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.search.BackColor = System.Drawing.Color.MidnightBlue;
-            this.search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.search.FlatAppearance.BorderSize = 0;
-            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.search.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.search.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.search.IconColor = System.Drawing.Color.DarkSalmon;
-            this.search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.search.IconSize = 35;
-            this.search.Location = new System.Drawing.Point(550, 127);
-            this.search.Name = "search";
-            this.search.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.search.Size = new System.Drawing.Size(40, 32);
-            this.search.TabIndex = 26;
-            this.search.UseVisualStyleBackColor = false;
-            this.search.Click += new System.EventHandler(this.searchButtonClicked);
             // 
             // delete
             // 
@@ -391,56 +413,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Disponible";
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // ARTICLE_ID
-            // 
-            this.ARTICLE_ID.HeaderText = "ARTICLE_ID";
-            this.ARTICLE_ID.Name = "ARTICLE_ID";
-            this.ARTICLE_ID.ReadOnly = true;
-            this.ARTICLE_ID.Visible = false;
-            // 
-            // DATE
-            // 
-            this.DATE.HeaderText = "Date";
-            this.DATE.Name = "DATE";
-            this.DATE.ReadOnly = true;
-            // 
-            // Ref
-            // 
-            this.Ref.HeaderText = "Article ref";
-            this.Ref.Name = "Ref";
-            this.Ref.ReadOnly = true;
-            // 
-            // ArticleName
-            // 
-            this.ArticleName.HeaderText = "Article";
-            this.ArticleName.Name = "ArticleName";
-            this.ArticleName.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Prix";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantite";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
             // Vente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -449,8 +421,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.reload_btn);
-            this.Controls.Add(this.searchInput);
-            this.Controls.Add(this.search);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.add_btn);
@@ -489,8 +459,6 @@
         private NumericUpDown QuantityTextBox;
         private Label totalLabel;
         private FontAwesome.Sharp.IconButton reload_btn;
-        private TextBox searchInput;
-        private FontAwesome.Sharp.IconButton search;
         private FontAwesome.Sharp.IconButton delete;
         private FontAwesome.Sharp.IconButton cancel_btn;
         private FontAwesome.Sharp.IconButton add_btn;
