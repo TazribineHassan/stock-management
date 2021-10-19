@@ -32,24 +32,6 @@
             this.goBack = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.prixLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.disponibleLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ArticlesComboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.reload_btn = new FontAwesome.Sharp.IconButton();
-            this.searchInput = new System.Windows.Forms.TextBox();
-            this.search = new FontAwesome.Sharp.IconButton();
-            this.delete = new FontAwesome.Sharp.IconButton();
-            this.cancel_btn = new FontAwesome.Sharp.IconButton();
-            this.add_btn = new FontAwesome.Sharp.IconButton();
-            this.totalLabel = new System.Windows.Forms.Label();
-            this.QuantityTextBox = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ARTICLE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,11 +41,27 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.prixLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.disponibleLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ArticlesComboBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.reload_btn = new FontAwesome.Sharp.IconButton();
+            this.delete = new FontAwesome.Sharp.IconButton();
+            this.cancel_btn = new FontAwesome.Sharp.IconButton();
+            this.add_btn = new FontAwesome.Sharp.IconButton();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.QuantityTextBox = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityTextBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,6 +118,82 @@
             this.label1.Size = new System.Drawing.Size(77, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ventes";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.ARTICLE_ID,
+            this.DATE,
+            this.Ref,
+            this.ArticleName,
+            this.Price,
+            this.Quantity,
+            this.Total});
+            this.dataGridView1.Location = new System.Drawing.Point(386, 195);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(642, 254);
+            this.dataGridView1.TabIndex = 44;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.updateSell);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // ARTICLE_ID
+            // 
+            this.ARTICLE_ID.HeaderText = "ARTICLE_ID";
+            this.ARTICLE_ID.Name = "ARTICLE_ID";
+            this.ARTICLE_ID.ReadOnly = true;
+            this.ARTICLE_ID.Visible = false;
+            // 
+            // DATE
+            // 
+            this.DATE.HeaderText = "Date";
+            this.DATE.Name = "DATE";
+            this.DATE.ReadOnly = true;
+            // 
+            // Ref
+            // 
+            this.Ref.HeaderText = "Article ref";
+            this.Ref.Name = "Ref";
+            this.Ref.ReadOnly = true;
+            // 
+            // ArticleName
+            // 
+            this.ArticleName.HeaderText = "Article";
+            this.ArticleName.Name = "ArticleName";
+            this.ArticleName.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Prix";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantite";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -179,12 +253,15 @@
             // 
             // ArticlesComboBox
             // 
+            this.ArticlesComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ArticlesComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ArticlesComboBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ArticlesComboBox.FormattingEnabled = true;
             this.ArticlesComboBox.Location = new System.Drawing.Point(127, 24);
             this.ArticlesComboBox.Name = "ArticlesComboBox";
             this.ArticlesComboBox.Size = new System.Drawing.Size(148, 29);
             this.ArticlesComboBox.TabIndex = 2;
+            this.ArticlesComboBox.SelectedValueChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // label2
             // 
@@ -226,35 +303,7 @@
             this.reload_btn.Size = new System.Drawing.Size(40, 32);
             this.reload_btn.TabIndex = 54;
             this.reload_btn.UseVisualStyleBackColor = false;
-            this.reload_btn.Click += new System.EventHandler(this.reload_btn_Click);
-            // 
-            // searchInput
-            // 
-            this.searchInput.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchInput.Location = new System.Drawing.Point(386, 149);
-            this.searchInput.Name = "searchInput";
-            this.searchInput.Size = new System.Drawing.Size(148, 29);
-            this.searchInput.TabIndex = 53;
-            // 
-            // search
-            // 
-            this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.search.BackColor = System.Drawing.Color.MidnightBlue;
-            this.search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.search.FlatAppearance.BorderSize = 0;
-            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.search.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.search.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.search.IconColor = System.Drawing.Color.White;
-            this.search.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.search.IconSize = 35;
-            this.search.Location = new System.Drawing.Point(540, 148);
-            this.search.Name = "search";
-            this.search.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.search.Size = new System.Drawing.Size(40, 32);
-            this.search.TabIndex = 52;
-            this.search.UseVisualStyleBackColor = false;
+            this.reload_btn.Click += new System.EventHandler(this.refreshButtonClicked);
             // 
             // delete
             // 
@@ -274,6 +323,7 @@
             this.delete.Size = new System.Drawing.Size(44, 32);
             this.delete.TabIndex = 51;
             this.delete.UseVisualStyleBackColor = false;
+            this.delete.Click += new System.EventHandler(this.deleteButtonClicked);
             // 
             // cancel_btn
             // 
@@ -293,6 +343,7 @@
             this.cancel_btn.Size = new System.Drawing.Size(70, 32);
             this.cancel_btn.TabIndex = 50;
             this.cancel_btn.UseVisualStyleBackColor = false;
+            this.cancel_btn.Click += new System.EventHandler(this.resetButtonClicked);
             // 
             // add_btn
             // 
@@ -312,6 +363,7 @@
             this.add_btn.Size = new System.Drawing.Size(70, 32);
             this.add_btn.TabIndex = 49;
             this.add_btn.UseVisualStyleBackColor = false;
+            this.add_btn.Click += new System.EventHandler(this.addButton_Click);
             // 
             // totalLabel
             // 
@@ -338,6 +390,7 @@
             this.QuantityTextBox.Name = "QuantityTextBox";
             this.QuantityTextBox.Size = new System.Drawing.Size(148, 27);
             this.QuantityTextBox.TabIndex = 47;
+            this.QuantityTextBox.ValueChanged += new System.EventHandler(this.QuantityTextBoxChanged);
             // 
             // label4
             // 
@@ -361,80 +414,6 @@
             this.label3.TabIndex = 45;
             this.label3.Text = "Quantite";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.ARTICLE_ID,
-            this.DATE,
-            this.Ref,
-            this.ArticleName,
-            this.Price,
-            this.Quantity,
-            this.Total});
-            this.dataGridView1.Location = new System.Drawing.Point(386, 195);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 254);
-            this.dataGridView1.TabIndex = 44;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // ARTICLE_ID
-            // 
-            this.ARTICLE_ID.HeaderText = "ARTICLE_ID";
-            this.ARTICLE_ID.Name = "ARTICLE_ID";
-            this.ARTICLE_ID.ReadOnly = true;
-            this.ARTICLE_ID.Visible = false;
-            // 
-            // DATE
-            // 
-            this.DATE.HeaderText = "Date";
-            this.DATE.Name = "DATE";
-            this.DATE.ReadOnly = true;
-            // 
-            // Ref
-            // 
-            this.Ref.HeaderText = "Article ref";
-            this.Ref.Name = "Ref";
-            this.Ref.ReadOnly = true;
-            // 
-            // ArticleName
-            // 
-            this.ArticleName.HeaderText = "Article";
-            this.ArticleName.Name = "ArticleName";
-            this.ArticleName.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Prix";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantite";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
             // vente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -443,8 +422,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.reload_btn);
-            this.Controls.Add(this.searchInput);
-            this.Controls.Add(this.search);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.add_btn);
@@ -460,10 +437,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityTextBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,8 +461,6 @@
         private Label label2;
         private Label label10;
         private FontAwesome.Sharp.IconButton reload_btn;
-        private TextBox searchInput;
-        private FontAwesome.Sharp.IconButton search;
         private FontAwesome.Sharp.IconButton delete;
         private FontAwesome.Sharp.IconButton cancel_btn;
         private FontAwesome.Sharp.IconButton add_btn;

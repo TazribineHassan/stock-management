@@ -19,7 +19,9 @@ namespace stock_management.Services.Implementation
         {
 
             if (sell.Quantity > sell.Article.Quantity)
-                throw new Exception("Insuffisant stock");
+                throw new Exception("Stock insuffisant");
+
+            sell.ArticleId = sell.Article.Id;
 
             var total = sell.Article.Price * sell.Quantity;
             sell.Total = total;
