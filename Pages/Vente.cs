@@ -4,7 +4,7 @@ using stock_management.Services.Implementation;
 
 namespace stock_management.Pages
 {
-    public partial class Vente : Form
+    public partial class vente : Form
     {
 
         private ISellService sellService = new SellService();
@@ -14,7 +14,7 @@ namespace stock_management.Pages
         private Sell selectedSell;
 
 
-        public Vente()
+        public vente()
         {
             InitializeComponent();
 
@@ -123,10 +123,10 @@ namespace stock_management.Pages
 
         private void Vente_Load(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
             QuantityTextBox.ValueChanged += QuantityTextBoxChanged;
-
             refresh();
+            Cursor.Current = Cursors.Default;
         }
 
         private void QuantityTextBoxChanged(object? sender, EventArgs e)
@@ -189,6 +189,16 @@ namespace stock_management.Pages
             disponibleLabel.Text = article.Quantity.ToString();
             prixLabel.Text = article.Price.ToString();
             totalLabel.Text = (int)QuantityTextBox.Value * article.Price + "";
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reload_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

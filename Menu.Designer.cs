@@ -48,7 +48,7 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(934, 511);
+            this.mainPanel.Size = new System.Drawing.Size(1084, 561);
             this.mainPanel.TabIndex = 0;
             // 
             // other_btn
@@ -64,10 +64,10 @@
             this.other_btn.IconColor = System.Drawing.SystemColors.Control;
             this.other_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.other_btn.IconSize = 60;
-            this.other_btn.Location = new System.Drawing.Point(476, 262);
+            this.other_btn.Location = new System.Drawing.Point(565, 287);
             this.other_btn.Name = "other_btn";
             this.other_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.other_btn.Size = new System.Drawing.Size(200, 90);
+            this.other_btn.Size = new System.Drawing.Size(250, 110);
             this.other_btn.TabIndex = 9;
             this.other_btn.Text = "Autres";
             this.other_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -86,10 +86,10 @@
             this.suivi_btn.IconColor = System.Drawing.SystemColors.Control;
             this.suivi_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.suivi_btn.IconSize = 60;
-            this.suivi_btn.Location = new System.Drawing.Point(236, 262);
+            this.suivi_btn.Location = new System.Drawing.Point(289, 287);
             this.suivi_btn.Name = "suivi_btn";
             this.suivi_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.suivi_btn.Size = new System.Drawing.Size(200, 90);
+            this.suivi_btn.Size = new System.Drawing.Size(250, 110);
             this.suivi_btn.TabIndex = 8;
             this.suivi_btn.Text = "Suivi Journalier";
             this.suivi_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -109,10 +109,10 @@
             this.vente_btn.IconColor = System.Drawing.SystemColors.Control;
             this.vente_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.vente_btn.IconSize = 60;
-            this.vente_btn.Location = new System.Drawing.Point(476, 139);
+            this.vente_btn.Location = new System.Drawing.Point(565, 151);
             this.vente_btn.Name = "vente_btn";
             this.vente_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.vente_btn.Size = new System.Drawing.Size(200, 90);
+            this.vente_btn.Size = new System.Drawing.Size(250, 110);
             this.vente_btn.TabIndex = 7;
             this.vente_btn.Text = "Ventes";
             this.vente_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -131,10 +131,10 @@
             this.stock_btn.IconColor = System.Drawing.SystemColors.Control;
             this.stock_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.stock_btn.IconSize = 60;
-            this.stock_btn.Location = new System.Drawing.Point(236, 139);
+            this.stock_btn.Location = new System.Drawing.Point(289, 151);
             this.stock_btn.Name = "stock_btn";
             this.stock_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.stock_btn.Size = new System.Drawing.Size(200, 90);
+            this.stock_btn.Size = new System.Drawing.Size(250, 110);
             this.stock_btn.TabIndex = 6;
             this.stock_btn.Text = "Stock";
             this.stock_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -147,7 +147,7 @@
             this.pictureBox1.Image = global::stock_management.Properties.Resources.istockphoto_1146532466_612x612;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(934, 511);
+            this.pictureBox1.Size = new System.Drawing.Size(1084, 561);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -156,7 +156,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 511);
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(1080, 560);
+            this.ClientSize = new System.Drawing.Size(1084, 561);
             this.Controls.Add(this.mainPanel);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
