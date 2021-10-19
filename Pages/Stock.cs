@@ -18,7 +18,7 @@ namespace stock_management.Pages
         private IArticleService articleService = new ArticleService();
 
         private List<Article> Articles { get; set; }
-        private Article? selectedArticle = new Article();
+        private Article? selectedArticle;
         public Stock()
         {
             InitializeComponent();

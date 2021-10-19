@@ -37,9 +37,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.addButton = new System.Windows.Forms.Button();
             this.QuantityTextBox = new System.Windows.Forms.NumericUpDown();
             this.totalLabel = new System.Windows.Forms.Label();
+            this.reload_btn = new FontAwesome.Sharp.IconButton();
+            this.searchInput = new System.Windows.Forms.TextBox();
+            this.search = new FontAwesome.Sharp.IconButton();
+            this.delete = new FontAwesome.Sharp.IconButton();
+            this.cancel_btn = new FontAwesome.Sharp.IconButton();
+            this.add_btn = new FontAwesome.Sharp.IconButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.prixLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.disponibleLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ARTICLE_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArticleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityTextBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,7 +75,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 100);
+            this.panel1.Size = new System.Drawing.Size(967, 100);
             this.panel1.TabIndex = 0;
             // 
             // goBack
@@ -88,7 +103,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.Control;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 55;
-            this.iconPictureBox1.Location = new System.Drawing.Point(306, 24);
+            this.iconPictureBox1.Location = new System.Drawing.Point(389, 24);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(70, 55);
             this.iconPictureBox1.TabIndex = 2;
@@ -100,7 +115,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Schoolbook", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(382, 41);
+            this.label1.Location = new System.Drawing.Point(465, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 23);
             this.label1.TabIndex = 0;
@@ -111,80 +126,290 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.ARTICLE_ID,
+            this.DATE,
             this.Ref,
             this.ArticleName,
             this.Price,
             this.Quantity,
             this.Total});
-            this.dataGridView1.Location = new System.Drawing.Point(275, 144);
+            this.dataGridView1.Location = new System.Drawing.Point(362, 173);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(513, 254);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(593, 254);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.updateSell);
             // 
             // ArticlesComboBox
             // 
+            this.ArticlesComboBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ArticlesComboBox.FormattingEnabled = true;
-            this.ArticlesComboBox.Location = new System.Drawing.Point(120, 160);
+            this.ArticlesComboBox.Location = new System.Drawing.Point(127, 24);
             this.ArticlesComboBox.Name = "ArticlesComboBox";
-            this.ArticlesComboBox.Size = new System.Drawing.Size(121, 23);
+            this.ArticlesComboBox.Size = new System.Drawing.Size(148, 29);
             this.ArticlesComboBox.TabIndex = 2;
+            this.ArticlesComboBox.SelectedValueChanged += new System.EventHandler(this.comboBoxChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 163);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(11, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 15);
+            this.label2.Size = new System.Drawing.Size(61, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Article";
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 224);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(46, 358);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 15);
+            this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 5;
             this.label3.Text = "Quantite";
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 287);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(46, 415);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 15);
+            this.label4.Size = new System.Drawing.Size(49, 21);
             this.label4.TabIndex = 7;
             this.label4.Text = "Total";
             // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(73, 348);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(125, 23);
-            this.addButton.TabIndex = 8;
-            this.addButton.Text = "Ajouter";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
             // QuantityTextBox
             // 
-            this.QuantityTextBox.Location = new System.Drawing.Point(121, 224);
+            this.QuantityTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.QuantityTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.QuantityTextBox.Location = new System.Drawing.Point(162, 358);
+            this.QuantityTextBox.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
             this.QuantityTextBox.Name = "QuantityTextBox";
-            this.QuantityTextBox.Size = new System.Drawing.Size(120, 23);
+            this.QuantityTextBox.Size = new System.Drawing.Size(148, 27);
             this.QuantityTextBox.TabIndex = 9;
             // 
             // totalLabel
             // 
             this.totalLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.totalLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.totalLabel.AutoSize = true;
-            this.totalLabel.Location = new System.Drawing.Point(149, 287);
+            this.totalLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.totalLabel.Location = new System.Drawing.Point(159, 415);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(0, 15);
+            this.totalLabel.Size = new System.Drawing.Size(19, 21);
             this.totalLabel.TabIndex = 10;
+            this.totalLabel.Text = "0";
+            // 
+            // reload_btn
+            // 
+            this.reload_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.reload_btn.BackColor = System.Drawing.Color.MidnightBlue;
+            this.reload_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reload_btn.FlatAppearance.BorderSize = 0;
+            this.reload_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.reload_btn.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.reload_btn.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            this.reload_btn.IconColor = System.Drawing.Color.DarkSalmon;
+            this.reload_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.reload_btn.IconSize = 35;
+            this.reload_btn.Location = new System.Drawing.Point(745, 127);
+            this.reload_btn.Name = "reload_btn";
+            this.reload_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.reload_btn.Size = new System.Drawing.Size(40, 32);
+            this.reload_btn.TabIndex = 28;
+            this.reload_btn.UseVisualStyleBackColor = false;
+            this.reload_btn.Click += new System.EventHandler(this.refreshButtonClicked);
+            // 
+            // searchInput
+            // 
+            this.searchInput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchInput.Location = new System.Drawing.Point(362, 127);
+            this.searchInput.Name = "searchInput";
+            this.searchInput.Size = new System.Drawing.Size(148, 29);
+            this.searchInput.TabIndex = 27;
+            // 
+            // search
+            // 
+            this.search.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.search.BackColor = System.Drawing.Color.MidnightBlue;
+            this.search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.search.FlatAppearance.BorderSize = 0;
+            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.search.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.search.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.search.IconColor = System.Drawing.Color.DarkSalmon;
+            this.search.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.search.IconSize = 35;
+            this.search.Location = new System.Drawing.Point(550, 127);
+            this.search.Name = "search";
+            this.search.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.search.Size = new System.Drawing.Size(40, 32);
+            this.search.TabIndex = 26;
+            this.search.UseVisualStyleBackColor = false;
+            this.search.Click += new System.EventHandler(this.searchButtonClicked);
+            // 
+            // delete
+            // 
+            this.delete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.delete.BackColor = System.Drawing.Color.MidnightBlue;
+            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete.FlatAppearance.BorderSize = 0;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.delete.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.delete.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.delete.IconColor = System.Drawing.Color.DarkSalmon;
+            this.delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.delete.IconSize = 30;
+            this.delete.Location = new System.Drawing.Point(864, 127);
+            this.delete.Name = "delete";
+            this.delete.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.delete.Size = new System.Drawing.Size(44, 32);
+            this.delete.TabIndex = 25;
+            this.delete.UseVisualStyleBackColor = false;
+            this.delete.Click += new System.EventHandler(this.deleteButtonClicked);
+            // 
+            // cancel_btn
+            // 
+            this.cancel_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cancel_btn.BackColor = System.Drawing.Color.MidnightBlue;
+            this.cancel_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancel_btn.FlatAppearance.BorderSize = 0;
+            this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cancel_btn.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.cancel_btn.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.cancel_btn.IconColor = System.Drawing.Color.DarkSalmon;
+            this.cancel_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cancel_btn.IconSize = 35;
+            this.cancel_btn.Location = new System.Drawing.Point(237, 471);
+            this.cancel_btn.Name = "cancel_btn";
+            this.cancel_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.cancel_btn.Size = new System.Drawing.Size(70, 32);
+            this.cancel_btn.TabIndex = 24;
+            this.cancel_btn.UseVisualStyleBackColor = false;
+            this.cancel_btn.Click += new System.EventHandler(this.resetButtonClicked);
+            // 
+            // add_btn
+            // 
+            this.add_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.add_btn.BackColor = System.Drawing.Color.MidnightBlue;
+            this.add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.add_btn.FlatAppearance.BorderSize = 0;
+            this.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.add_btn.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.add_btn.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.add_btn.IconColor = System.Drawing.Color.DarkSalmon;
+            this.add_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.add_btn.IconSize = 35;
+            this.add_btn.Location = new System.Drawing.Point(46, 471);
+            this.add_btn.Name = "add_btn";
+            this.add_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.add_btn.Size = new System.Drawing.Size(70, 32);
+            this.add_btn.TabIndex = 23;
+            this.add_btn.UseVisualStyleBackColor = false;
+            this.add_btn.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label10.Location = new System.Drawing.Point(35, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(266, 23);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Ajouter / Modifier une vente";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.prixLabel);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.disponibleLabel);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.ArticlesComboBox);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(35, 172);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(297, 149);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Article";
+            // 
+            // prixLabel
+            // 
+            this.prixLabel.AutoSize = true;
+            this.prixLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.prixLabel.Location = new System.Drawing.Point(127, 111);
+            this.prixLabel.Name = "prixLabel";
+            this.prixLabel.Size = new System.Drawing.Size(19, 21);
+            this.prixLabel.TabIndex = 7;
+            this.prixLabel.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(11, 111);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 21);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Prix";
+            // 
+            // disponibleLabel
+            // 
+            this.disponibleLabel.AutoSize = true;
+            this.disponibleLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.disponibleLabel.Location = new System.Drawing.Point(127, 76);
+            this.disponibleLabel.Name = "disponibleLabel";
+            this.disponibleLabel.Size = new System.Drawing.Size(19, 21);
+            this.disponibleLabel.TabIndex = 5;
+            this.disponibleLabel.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(11, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 21);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Disponible";
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // ARTICLE_ID
+            // 
+            this.ARTICLE_ID.HeaderText = "ARTICLE_ID";
+            this.ARTICLE_ID.Name = "ARTICLE_ID";
+            this.ARTICLE_ID.ReadOnly = true;
+            this.ARTICLE_ID.Visible = false;
+            // 
+            // DATE
+            // 
+            this.DATE.HeaderText = "Date";
+            this.DATE.Name = "DATE";
+            this.DATE.ReadOnly = true;
             // 
             // Ref
             // 
@@ -220,23 +445,31 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(967, 521);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.reload_btn);
+            this.Controls.Add(this.searchInput);
+            this.Controls.Add(this.search);
+            this.Controls.Add(this.delete);
+            this.Controls.Add(this.cancel_btn);
+            this.Controls.Add(this.add_btn);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.QuantityTextBox);
-            this.Controls.Add(this.addButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.ArticlesComboBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Name = "Vente";
             this.Text = "Vente";
+            this.Load += new System.EventHandler(this.Vente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityTextBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,9 +486,23 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Button addButton;
         private NumericUpDown QuantityTextBox;
         private Label totalLabel;
+        private FontAwesome.Sharp.IconButton reload_btn;
+        private TextBox searchInput;
+        private FontAwesome.Sharp.IconButton search;
+        private FontAwesome.Sharp.IconButton delete;
+        private FontAwesome.Sharp.IconButton cancel_btn;
+        private FontAwesome.Sharp.IconButton add_btn;
+        private Label label10;
+        private GroupBox groupBox1;
+        private Label prixLabel;
+        private Label label7;
+        private Label disponibleLabel;
+        private Label label5;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn ARTICLE_ID;
+        private DataGridViewTextBoxColumn DATE;
         private DataGridViewTextBoxColumn Ref;
         private DataGridViewTextBoxColumn ArticleName;
         private DataGridViewTextBoxColumn Price;
