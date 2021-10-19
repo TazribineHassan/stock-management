@@ -13,6 +13,8 @@ namespace stock_management.Services
 
         Article getArticle(int id);
 
+        List<Article> getArticlesByRef(string refe);
+
         Article addArticle(Article article);
 
         Article updateArticle(Article article);
