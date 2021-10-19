@@ -10,7 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\spinner-icon.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="5.15.3" />
+    <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -67,7 +67,11 @@ namespace stock_management.Pages
 
         private void Stock_Load(object sender, EventArgs e)
         {
+            stockpanel.Hide();
+            Cursor.Current = Cursors.WaitCursor;
             getAllArticles();
+            stockpanel.Show();
+            Cursor.Current = Cursors.Default;
         }
 
 
@@ -76,6 +80,7 @@ namespace stock_management.Pages
             Articles = articleService.getArticles();
             dataGridView1.DataSource = Articles;
             dataGridView1.Columns["Id"].Visible = false;
+            dataGridView1.Columns["Sells"].Visible = false;
         }
 
         private void updateArticle(object sender, DataGridViewCellEventArgs e)

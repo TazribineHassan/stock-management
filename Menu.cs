@@ -35,7 +35,7 @@ namespace stock_management
 
         private void vente_btn_Click(object sender, EventArgs e)
         {
-            moveToNewForm(new Vente());
+            moveToNewForm(new vente());
         }
 
         private void suivi_btn_Click(object sender, EventArgs e)
