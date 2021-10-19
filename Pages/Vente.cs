@@ -196,7 +196,7 @@ namespace stock_management.Pages
 
         }
 
-        private void reload_btn_Click(object sender, EventArgs e)
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
         }
