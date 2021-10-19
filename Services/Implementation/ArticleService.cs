@@ -37,6 +37,11 @@ namespace stock_management.Services.Implementation
             return context.Articles.ToList();
         }
 
+        public List<Article> getArticlesByRef(string refe)
+        {
+            return context.Articles.Where(article => article.Ref == refe).ToList();
+        }
+
         public Article updateArticle(Article article)
         {
             Article oldArticle = context.Articles.Where(oldArticle => oldArticle.Id == article.Id).FirstOrDefault();
@@ -45,8 +50,11 @@ namespace stock_management.Services.Implementation
                 throw new Exception("Article not found!");
             }
 
-            oldArticle.Ref = article.Ref;
-
+            oldArticle!.Ref = article!.Ref;
+            oldArticle.Name = article.Name;
+            oldArticle.Price = article.Price;
+            oldArticle.Quantity = article.Quantity;
+            
             context.SaveChanges();
 
             return oldArticle;
