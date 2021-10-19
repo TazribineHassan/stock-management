@@ -22,5 +22,7 @@ namespace stock_management.database.modles
         [Column(name: "QUANTITY")]
         public int Quantity { get; set; }
 
+        public ICollection<Sell> Sells { get; set; }
+
     }
 }
