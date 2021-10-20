@@ -163,6 +163,7 @@
             this.suiviPanel.Name = "suiviPanel";
             this.suiviPanel.Size = new System.Drawing.Size(1084, 461);
             this.suiviPanel.TabIndex = 1;
+            this.suiviPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.suiviPanel_Paint);
             // 
             // iconButton1
             // 

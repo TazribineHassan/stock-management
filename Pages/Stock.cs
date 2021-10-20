@@ -157,7 +157,7 @@ namespace stock_management.Pages
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            day.Text = DateTime.Now.DayOfWeek.ToString() + "  " + DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            day.Text = DateTime.Now.ToString("dddd  dd/MM/yyyy", CultureInfo.CreateSpecificCulture("fr-FR"));
             time.Text = DateTime.Now.ToString("HH:mm");
             second.Text = DateTime.Now.ToString("ss");
         }
