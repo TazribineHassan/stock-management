@@ -18,7 +18,7 @@ namespace stock_management.database
         public DatabaseContext() :
            base(new SQLiteConnection()
            {
-               ConnectionString = new SQLiteConnectionStringBuilder() { DataSource = dbPath, ForeignKeys = true }.ConnectionString
+               ConnectionString = new SQLiteConnectionStringBuilder() { DataSource = dbPath, ForeignKeys = false }.ConnectionString
            }, true)
         {
             Console.WriteLine(dbPath);

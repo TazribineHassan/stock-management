@@ -24,6 +24,8 @@ namespace stock_management.Pages
         public Suivi()
         {
             InitializeComponent();
+            startdate.CustomFormat = "dd/MM/yyyy";
+            enddate.CustomFormat = "dd/MM/yyyy";
         }
 
         private void goBack_Click(object sender, EventArgs e)

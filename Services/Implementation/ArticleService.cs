@@ -8,6 +8,11 @@ namespace stock_management.Services.Implementation
 
         DatabaseContext context = new DatabaseContext();
 
+        public ArticleService()
+        {
+            context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+        }
+
         public Article addArticle(Article article)
         {
             context.Articles.Add(article);
@@ -40,6 +45,11 @@ namespace stock_management.Services.Implementation
         public List<Article> getArticlesByRef(string refe)
         {
             return context.Articles.Where(article => article.Ref == refe).ToList();
+        }
+
+        public List<Article> getAvailableArticles()
+        {
+            return context.Articles.Where(article => article.Quantity > 0).ToList();
         }
 
         public Article updateArticle(Article article)

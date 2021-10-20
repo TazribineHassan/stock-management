@@ -2,6 +2,7 @@
 using stock_management.database.modles;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,11 @@ namespace stock_management.Services.Implementation
         DatabaseContext context = new DatabaseContext();
 
         IArticleService articleService = new ArticleService();
+
+        public SellService()
+        {
+            context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+        }
 
         public Sell addSell(Sell sell)
         {
@@ -29,9 +35,23 @@ namespace stock_management.Services.Implementation
             sell.Article.Quantity -= sell.Quantity;
             articleService.updateArticle(sell.Article);
 
-            context.Sells.Add(sell);
-            context.SaveChanges();
+            addSellNatively(sell);
+            //context.Sells.Add(sell);
+            //context.SaveChanges();
             return sell;
+        }
+
+        private void addSellNatively(Sell sell)
+        {
+            context.Database.Connection.Open();
+            var cmd = context.Database.Connection.CreateCommand();
+            cmd.CommandText = "INSERT INTO [Sell]([DATE], [QUANTITY], [TOTAL], [ARTICLE_ID]) VALUES(@p0, @p1, @p2, @p3);";
+            cmd.Parameters.Add(new SQLiteParameter("@p0", sell.Date));
+            cmd.Parameters.Add(new SQLiteParameter("@p1", sell.Quantity));
+            cmd.Parameters.Add(new SQLiteParameter("@p2", sell.Total));
+            cmd.Parameters.Add(new SQLiteParameter("@p3", sell.Article.Id));
+            cmd.ExecuteNonQuery();
+            context.Database.Connection.Close();
         }
 
         public void deleteSell(int id)
@@ -53,7 +73,7 @@ namespace stock_management.Services.Implementation
 
         public List<Sell> getSells()
         {
-            return context.Sells.ToList();
+            return context.Sells.Include("Article").ToList();
         }
 
         public Sell updateSell(Sell sell)
@@ -95,9 +115,24 @@ namespace stock_management.Services.Implementation
             oldSell.Date = sell.Date;
             oldSell.Article = sell.Article;
 
-            context.SaveChanges();
+            updateSellNatively(oldSell);
 
             return oldSell;
         }
+
+        private void updateSellNatively(Sell sell)
+        {
+            context.Database.Connection.Open();
+            var cmd = context.Database.Connection.CreateCommand();
+            cmd.CommandText = "UPDATE [Sell] SET [DATE] = @p0, [QUANTITY] = @p1, [TOTAL] = @p2, [ARTICLE_ID] = @p3 WHERE([ID] = @p4)";
+            cmd.Parameters.Add(new SQLiteParameter("@p0", sell.Date));
+            cmd.Parameters.Add(new SQLiteParameter("@p1", sell.Quantity));
+            cmd.Parameters.Add(new SQLiteParameter("@p2", sell.Total));
+            cmd.Parameters.Add(new SQLiteParameter("@p3", sell.Article.Id));
+            cmd.Parameters.Add(new SQLiteParameter("@p4", sell.Id));
+            cmd.ExecuteNonQuery();
+            context.Database.Connection.Close();
+        }
+
     }
 }
