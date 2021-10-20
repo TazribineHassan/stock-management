@@ -60,6 +60,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.disponibleLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -169,7 +171,7 @@
             this.Price,
             this.Quantity,
             this.Total});
-            this.dataGridView1.Location = new System.Drawing.Point(386, 194);
+            this.dataGridView1.Location = new System.Drawing.Point(386, 217);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
@@ -232,13 +234,15 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.disponibleLabel);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.prixLabel);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.ArticlesComboBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(59, 194);
+            this.groupBox1.Location = new System.Drawing.Point(59, 217);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 122);
+            this.groupBox1.Size = new System.Drawing.Size(297, 163);
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Article";
@@ -247,7 +251,7 @@
             // 
             this.prixLabel.AutoSize = true;
             this.prixLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.prixLabel.Location = new System.Drawing.Point(127, 76);
+            this.prixLabel.Location = new System.Drawing.Point(127, 128);
             this.prixLabel.Name = "prixLabel";
             this.prixLabel.Size = new System.Drawing.Size(19, 21);
             this.prixLabel.TabIndex = 7;
@@ -257,7 +261,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(11, 76);
+            this.label7.Location = new System.Drawing.Point(11, 128);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 21);
             this.label7.TabIndex = 6;
@@ -291,7 +295,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label10.Location = new System.Drawing.Point(59, 149);
+            this.label10.Location = new System.Drawing.Point(59, 172);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(266, 23);
             this.label10.TabIndex = 55;
@@ -309,7 +313,7 @@
             this.reload_btn.IconColor = System.Drawing.Color.White;
             this.reload_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.reload_btn.IconSize = 35;
-            this.reload_btn.Location = new System.Drawing.Point(938, 149);
+            this.reload_btn.Location = new System.Drawing.Point(938, 172);
             this.reload_btn.Name = "reload_btn";
             this.reload_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.reload_btn.Size = new System.Drawing.Size(40, 32);
@@ -329,7 +333,7 @@
             this.delete.IconColor = System.Drawing.Color.White;
             this.delete.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.delete.IconSize = 30;
-            this.delete.Location = new System.Drawing.Point(984, 149);
+            this.delete.Location = new System.Drawing.Point(984, 172);
             this.delete.Name = "delete";
             this.delete.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.delete.Size = new System.Drawing.Size(44, 32);
@@ -349,7 +353,7 @@
             this.cancel_btn.IconColor = System.Drawing.Color.Orange;
             this.cancel_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.cancel_btn.IconSize = 35;
-            this.cancel_btn.Location = new System.Drawing.Point(261, 457);
+            this.cancel_btn.Location = new System.Drawing.Point(261, 510);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.cancel_btn.Size = new System.Drawing.Size(70, 32);
@@ -369,7 +373,7 @@
             this.add_btn.IconColor = System.Drawing.Color.White;
             this.add_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.add_btn.IconSize = 35;
-            this.add_btn.Location = new System.Drawing.Point(70, 457);
+            this.add_btn.Location = new System.Drawing.Point(70, 510);
             this.add_btn.Name = "add_btn";
             this.add_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.add_btn.Size = new System.Drawing.Size(70, 32);
@@ -383,7 +387,7 @@
             this.totalLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.totalLabel.AutoSize = true;
             this.totalLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.totalLabel.Location = new System.Drawing.Point(183, 401);
+            this.totalLabel.Location = new System.Drawing.Point(186, 454);
             this.totalLabel.Name = "totalLabel";
             this.totalLabel.Size = new System.Drawing.Size(19, 21);
             this.totalLabel.TabIndex = 48;
@@ -393,7 +397,7 @@
             // 
             this.QuantityTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.QuantityTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.QuantityTextBox.Location = new System.Drawing.Point(186, 344);
+            this.QuantityTextBox.Location = new System.Drawing.Point(186, 395);
             this.QuantityTextBox.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -409,7 +413,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(70, 401);
+            this.label4.Location = new System.Drawing.Point(70, 454);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 21);
             this.label4.TabIndex = 46;
@@ -420,7 +424,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(70, 344);
+            this.label3.Location = new System.Drawing.Point(70, 397);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 45;
@@ -431,11 +435,31 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // disponibleLabel
+            // 
+            this.disponibleLabel.AutoSize = true;
+            this.disponibleLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.disponibleLabel.Location = new System.Drawing.Point(127, 78);
+            this.disponibleLabel.Name = "disponibleLabel";
+            this.disponibleLabel.Size = new System.Drawing.Size(19, 21);
+            this.disponibleLabel.TabIndex = 9;
+            this.disponibleLabel.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(11, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 21);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Disponible";
+            // 
             // vente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 561);
+            this.ClientSize = new System.Drawing.Size(1084, 606);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.reload_btn);
@@ -496,5 +520,7 @@
         private Label time;
         private Label day;
         private System.Windows.Forms.Timer timer;
+        private Label disponibleLabel;
+        private Label label6;
     }
 }

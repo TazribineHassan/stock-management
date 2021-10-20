@@ -24,7 +24,9 @@ namespace stock_management.Pages
         private void refresh()
         {
             // load articles
-            ArticlesComboBox.DataSource = articleService.getAvailableArticles();
+            ArticlesComboBox.Items.Clear();
+            ArticlesComboBox.Items.AddRange(articleService.getArticles().ToArray());
+            ArticlesComboBox.SelectedItem = null;
             ArticlesComboBox.DisplayMember = "Name";
 
             // load sells
@@ -100,6 +102,7 @@ namespace stock_management.Pages
         private void refreshButtonClicked(object sender, EventArgs e)
         {
             refresh();
+            clearBoxes();
         }
 
         private void deleteButtonClicked(object sender, EventArgs e)
@@ -171,6 +174,9 @@ namespace stock_management.Pages
         private void clearBoxes()
         {
             ArticlesComboBox.SelectedItem = null;
+            ArticlesComboBox.Text = "";
+            disponibleLabel.Text = "0";
+            prixLabel.Text = "0";
             QuantityTextBox.Value = 0;
             totalLabel.Text = 0 + "";
             selectedSell = null;
@@ -182,11 +188,13 @@ namespace stock_management.Pages
             if (article == null)
             {
                 prixLabel.Text = "0";
+                disponibleLabel.Text = "0";
                 totalLabel.Text = "0";
                 return;
             }
 
             prixLabel.Text = article.Price.ToString();
+            disponibleLabel.Text = article.Quantity.ToString();
             totalLabel.Text = (int)QuantityTextBox.Value * article.Price + "";
         }
 
