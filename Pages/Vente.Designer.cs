@@ -44,8 +44,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.prixLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.disponibleLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.ArticlesComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -135,12 +133,12 @@
             this.Price,
             this.Quantity,
             this.Total});
-            this.dataGridView1.Location = new System.Drawing.Point(386, 195);
+            this.dataGridView1.Location = new System.Drawing.Point(386, 194);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 254);
+            this.dataGridView1.Size = new System.Drawing.Size(642, 295);
             this.dataGridView1.TabIndex = 44;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.updateSell);
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
@@ -200,13 +198,11 @@
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.prixLabel);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.disponibleLabel);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.ArticlesComboBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(59, 194);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 149);
+            this.groupBox1.Size = new System.Drawing.Size(297, 122);
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Article";
@@ -215,7 +211,7 @@
             // 
             this.prixLabel.AutoSize = true;
             this.prixLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.prixLabel.Location = new System.Drawing.Point(127, 111);
+            this.prixLabel.Location = new System.Drawing.Point(127, 76);
             this.prixLabel.Name = "prixLabel";
             this.prixLabel.Size = new System.Drawing.Size(19, 21);
             this.prixLabel.TabIndex = 7;
@@ -225,31 +221,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(11, 111);
+            this.label7.Location = new System.Drawing.Point(11, 76);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 21);
             this.label7.TabIndex = 6;
             this.label7.Text = "Prix";
-            // 
-            // disponibleLabel
-            // 
-            this.disponibleLabel.AutoSize = true;
-            this.disponibleLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.disponibleLabel.Location = new System.Drawing.Point(127, 76);
-            this.disponibleLabel.Name = "disponibleLabel";
-            this.disponibleLabel.Size = new System.Drawing.Size(19, 21);
-            this.disponibleLabel.TabIndex = 5;
-            this.disponibleLabel.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(11, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 21);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Disponible";
             // 
             // ArticlesComboBox
             // 
@@ -337,7 +313,7 @@
             this.cancel_btn.IconColor = System.Drawing.Color.Orange;
             this.cancel_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.cancel_btn.IconSize = 35;
-            this.cancel_btn.Location = new System.Drawing.Point(261, 493);
+            this.cancel_btn.Location = new System.Drawing.Point(261, 457);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.cancel_btn.Size = new System.Drawing.Size(70, 32);
@@ -357,7 +333,7 @@
             this.add_btn.IconColor = System.Drawing.Color.White;
             this.add_btn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.add_btn.IconSize = 35;
-            this.add_btn.Location = new System.Drawing.Point(70, 493);
+            this.add_btn.Location = new System.Drawing.Point(70, 457);
             this.add_btn.Name = "add_btn";
             this.add_btn.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.add_btn.Size = new System.Drawing.Size(70, 32);
@@ -371,7 +347,7 @@
             this.totalLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.totalLabel.AutoSize = true;
             this.totalLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.totalLabel.Location = new System.Drawing.Point(183, 437);
+            this.totalLabel.Location = new System.Drawing.Point(183, 401);
             this.totalLabel.Name = "totalLabel";
             this.totalLabel.Size = new System.Drawing.Size(19, 21);
             this.totalLabel.TabIndex = 48;
@@ -381,7 +357,7 @@
             // 
             this.QuantityTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.QuantityTextBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.QuantityTextBox.Location = new System.Drawing.Point(186, 380);
+            this.QuantityTextBox.Location = new System.Drawing.Point(186, 344);
             this.QuantityTextBox.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -397,7 +373,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(70, 437);
+            this.label4.Location = new System.Drawing.Point(70, 401);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 21);
             this.label4.TabIndex = 46;
@@ -408,7 +384,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(70, 380);
+            this.label3.Location = new System.Drawing.Point(70, 344);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 45;
@@ -455,8 +431,6 @@
         private GroupBox groupBox1;
         private Label prixLabel;
         private Label label7;
-        private Label disponibleLabel;
-        private Label label5;
         private ComboBox ArticlesComboBox;
         private Label label2;
         private Label label10;

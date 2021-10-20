@@ -10,6 +10,7 @@ namespace stock_management.Services
     public interface IArticleService
     {
         List<Article> getArticles();
+        List<Article> getAvailableArticles();
 
         Article getArticle(int id);
 

@@ -23,7 +23,7 @@ namespace stock_management.Pages
         private void refresh()
         {
             // load articles
-            ArticlesComboBox.DataSource = articleService.getArticles();
+            ArticlesComboBox.DataSource = articleService.getAvailableArticles();
             ArticlesComboBox.DisplayMember = "Name";
 
             // load sells
@@ -31,8 +31,7 @@ namespace stock_management.Pages
             List<Sell> sells = sellService.getSells();
             foreach (var sell in sells)
             {
-                Article article = articleService.getArticle(sell.ArticleId);
-                dataGridView1.Rows.Add(sell.Id, article.Id, sell.Date.ToShortDateString(), article.Ref, article.Name, article.Price, sell.Quantity, sell.Total);
+                dataGridView1.Rows.Add(sell.Id, sell.Article.Id, sell.Date.ToShortDateString(), sell.Article.Ref, sell.Article.Name, sell.Article.Price, sell.Quantity, sell.Total);
             }
             clearBoxes();
         }
@@ -177,16 +176,14 @@ namespace stock_management.Pages
 
         private void comboBoxChanged(object sender, EventArgs e)
         {
-            Article article = (sender as ComboBox).SelectedValue as Article;
+            Article article = (sender as ComboBox).SelectedItem as Article;
             if (article == null)
             {
-                disponibleLabel.Text = "0";
                 prixLabel.Text = "0";
                 totalLabel.Text = "0";
                 return;
             }
 
-            disponibleLabel.Text = article.Quantity.ToString();
             prixLabel.Text = article.Price.ToString();
             totalLabel.Text = (int)QuantityTextBox.Value * article.Price + "";
         }
