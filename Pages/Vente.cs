@@ -1,6 +1,7 @@
 ﻿using stock_management.database.modles;
 using stock_management.Services;
 using stock_management.Services.Implementation;
+using System.Globalization;
 
 namespace stock_management.Pages
 {
@@ -122,6 +123,7 @@ namespace stock_management.Pages
 
         private void Vente_Load(object sender, EventArgs e)
         {
+            timer.Start();
             Cursor.Current = Cursors.WaitCursor;
             QuantityTextBox.ValueChanged += QuantityTextBoxChanged;
             refresh();
@@ -196,6 +198,13 @@ namespace stock_management.Pages
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            day.Text = DateTime.Now.DayOfWeek.ToString() + "  " + DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            time.Text = DateTime.Now.ToString("HH:mm");
+            second.Text = DateTime.Now.ToString("ss");
         }
     }
 }

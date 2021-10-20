@@ -73,6 +73,16 @@ namespace stock_management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_Yane_Code {
+            get {
+                object obj = ResourceManager.GetObject("Logo-Yane-Code", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap spinner_icon {
             get {
                 object obj = ResourceManager.GetObject("spinner-icon", resourceCulture);

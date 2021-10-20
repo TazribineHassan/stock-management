@@ -42,5 +42,10 @@ namespace stock_management
         {
             moveToNewForm(new Suivi());
         }
+
+        private void other_btn_Click(object sender, EventArgs e)
+        {
+            moveToNewForm(new About());
+        }
     }
 }

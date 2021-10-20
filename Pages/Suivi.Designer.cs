@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.second = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.Label();
+            this.day = new System.Windows.Forms.Label();
             this.goBack = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,6 +54,7 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.suiviPanel.SuspendLayout();
@@ -59,14 +64,45 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Firebrick;
+            this.panel1.Controls.Add(this.second);
+            this.panel1.Controls.Add(this.time);
+            this.panel1.Controls.Add(this.day);
             this.panel1.Controls.Add(this.goBack);
             this.panel1.Controls.Add(this.iconPictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 100);
+            this.panel1.Size = new System.Drawing.Size(1084, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // second
+            // 
+            this.second.AutoSize = true;
+            this.second.BackColor = System.Drawing.Color.Transparent;
+            this.second.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.second.Location = new System.Drawing.Point(1047, 43);
+            this.second.Name = "second";
+            this.second.Size = new System.Drawing.Size(0, 19);
+            this.second.TabIndex = 5;
+            // 
+            // time
+            // 
+            this.time.AutoSize = true;
+            this.time.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.time.Location = new System.Drawing.Point(992, 39);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(0, 24);
+            this.time.TabIndex = 4;
+            // 
+            // day
+            // 
+            this.day.AutoSize = true;
+            this.day.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.day.Location = new System.Drawing.Point(791, 42);
+            this.day.Name = "day";
+            this.day.Size = new System.Drawing.Size(0, 22);
+            this.day.TabIndex = 3;
             // 
             // goBack
             // 
@@ -93,7 +129,7 @@
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.Control;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 51;
-            this.iconPictureBox1.Location = new System.Drawing.Point(414, 27);
+            this.iconPictureBox1.Location = new System.Drawing.Point(431, 27);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(59, 51);
             this.iconPictureBox1.TabIndex = 1;
@@ -105,7 +141,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(479, 42);
+            this.label1.Location = new System.Drawing.Point(496, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 23);
             this.label1.TabIndex = 0;
@@ -125,7 +161,7 @@
             this.suiviPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.suiviPanel.Location = new System.Drawing.Point(0, 100);
             this.suiviPanel.Name = "suiviPanel";
-            this.suiviPanel.Size = new System.Drawing.Size(1050, 439);
+            this.suiviPanel.Size = new System.Drawing.Size(1084, 461);
             this.suiviPanel.TabIndex = 1;
             // 
             // iconButton1
@@ -139,7 +175,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 35;
-            this.iconButton1.Location = new System.Drawing.Point(800, 65);
+            this.iconButton1.Location = new System.Drawing.Point(817, 76);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(1, 5, 0, 0);
             this.iconButton1.Size = new System.Drawing.Size(40, 40);
@@ -152,7 +188,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(489, 71);
+            this.label5.Location = new System.Drawing.Point(506, 82);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 19);
             this.label5.TabIndex = 17;
@@ -163,7 +199,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(283, 71);
+            this.label4.Location = new System.Drawing.Point(300, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 19);
             this.label4.TabIndex = 18;
@@ -174,7 +210,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(421, 72);
+            this.label3.Location = new System.Drawing.Point(438, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 19);
             this.label3.TabIndex = 16;
@@ -185,7 +221,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(198, 72);
+            this.label2.Location = new System.Drawing.Point(215, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 19);
             this.label2.TabIndex = 15;
@@ -194,9 +230,9 @@
             // enddate
             // 
             this.enddate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.enddate.CustomFormat = "MM-dd-yyyy";
+            this.enddate.CustomFormat = "dd-MM-yyyy";
             this.enddate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.enddate.Location = new System.Drawing.Point(510, 72);
+            this.enddate.Location = new System.Drawing.Point(527, 83);
             this.enddate.MinDate = new System.DateTime(2000, 2, 1, 0, 0, 0, 0);
             this.enddate.Name = "enddate";
             this.enddate.Size = new System.Drawing.Size(100, 23);
@@ -205,9 +241,9 @@
             // startdate
             // 
             this.startdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.startdate.CustomFormat = "MM-dd-yyyy";
+            this.startdate.CustomFormat = "dd-MM-yyyy";
             this.startdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.startdate.Location = new System.Drawing.Point(302, 72);
+            this.startdate.Location = new System.Drawing.Point(319, 83);
             this.startdate.MinDate = new System.DateTime(2000, 2, 1, 0, 0, 0, 0);
             this.startdate.Name = "startdate";
             this.startdate.Size = new System.Drawing.Size(100, 23);
@@ -224,7 +260,7 @@
             this.done.IconColor = System.Drawing.Color.White;
             this.done.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.done.IconSize = 35;
-            this.done.Location = new System.Drawing.Point(630, 65);
+            this.done.Location = new System.Drawing.Point(647, 76);
             this.done.Name = "done";
             this.done.Padding = new System.Windows.Forms.Padding(1, 5, 0, 0);
             this.done.Size = new System.Drawing.Size(40, 40);
@@ -248,7 +284,7 @@
             this.Price,
             this.Quantity,
             this.Total});
-            this.dataGridViewSuivi.Location = new System.Drawing.Point(196, 122);
+            this.dataGridViewSuivi.Location = new System.Drawing.Point(213, 133);
             this.dataGridViewSuivi.Name = "dataGridViewSuivi";
             this.dataGridViewSuivi.ReadOnly = true;
             this.dataGridViewSuivi.RowTemplate.Height = 25;
@@ -306,11 +342,16 @@
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Suivi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 539);
+            this.ClientSize = new System.Drawing.Size(1084, 561);
             this.Controls.Add(this.suiviPanel);
             this.Controls.Add(this.panel1);
             this.Name = "Suivi";
@@ -351,5 +392,9 @@
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn Quantity;
         private DataGridViewTextBoxColumn Total;
+        private Label time;
+        private Label day;
+        private System.Windows.Forms.Timer timer;
+        private Label second;
     }
 }
