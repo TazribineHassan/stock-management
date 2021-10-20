@@ -83,11 +83,12 @@
             // 
             // second
             // 
+            this.second.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.second.AutoSize = true;
             this.second.BackColor = System.Drawing.Color.Transparent;
             this.second.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.second.ForeColor = System.Drawing.Color.Black;
-            this.second.Location = new System.Drawing.Point(1050, 42);
+            this.second.Location = new System.Drawing.Point(1058, 42);
             this.second.Name = "second";
             this.second.Size = new System.Drawing.Size(0, 19);
             this.second.TabIndex = 8;
@@ -110,10 +111,11 @@
             // 
             // time
             // 
+            this.time.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.time.AutoSize = true;
             this.time.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.time.ForeColor = System.Drawing.Color.Black;
-            this.time.Location = new System.Drawing.Point(995, 38);
+            this.time.Location = new System.Drawing.Point(1003, 38);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(0, 24);
             this.time.TabIndex = 7;
@@ -135,10 +137,11 @@
             // 
             // day
             // 
+            this.day.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.day.AutoSize = true;
             this.day.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.day.ForeColor = System.Drawing.Color.Black;
-            this.day.Location = new System.Drawing.Point(794, 41);
+            this.day.Location = new System.Drawing.Point(802, 41);
             this.day.Name = "day";
             this.day.Size = new System.Drawing.Size(0, 22);
             this.day.TabIndex = 6;
