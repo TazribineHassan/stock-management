@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.mainPanel = new System.Windows.Forms.Panel();
             this.other_btn = new FontAwesome.Sharp.IconButton();
             this.suivi_btn = new FontAwesome.Sharp.IconButton();
@@ -69,9 +70,10 @@
             this.other_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.other_btn.Size = new System.Drawing.Size(250, 110);
             this.other_btn.TabIndex = 9;
-            this.other_btn.Text = "Autres";
+            this.other_btn.Text = "À propos";
             this.other_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.other_btn.UseVisualStyleBackColor = false;
+            this.other_btn.Click += new System.EventHandler(this.other_btn_Click);
             // 
             // suivi_btn
             // 
@@ -160,6 +162,7 @@
             this.AutoScrollMinSize = new System.Drawing.Size(1080, 560);
             this.ClientSize = new System.Drawing.Size(1084, 561);
             this.Controls.Add(this.mainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion De Stock";

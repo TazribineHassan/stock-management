@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.second = new System.Windows.Forms.Label();
             this.goBack = new FontAwesome.Sharp.IconButton();
+            this.time = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.day = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +59,7 @@
             this.QuantityTextBox = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,14 +70,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel1.Controls.Add(this.second);
             this.panel1.Controls.Add(this.goBack);
+            this.panel1.Controls.Add(this.time);
             this.panel1.Controls.Add(this.iconPictureBox1);
+            this.panel1.Controls.Add(this.day);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1084, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // second
+            // 
+            this.second.AutoSize = true;
+            this.second.BackColor = System.Drawing.Color.Transparent;
+            this.second.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.second.Location = new System.Drawing.Point(1040, 42);
+            this.second.Name = "second";
+            this.second.Size = new System.Drawing.Size(0, 19);
+            this.second.TabIndex = 59;
             // 
             // goBack
             // 
@@ -90,6 +108,15 @@
             this.goBack.UseVisualStyleBackColor = true;
             this.goBack.Click += new System.EventHandler(this.goBack_Click);
             // 
+            // time
+            // 
+            this.time.AutoSize = true;
+            this.time.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.time.Location = new System.Drawing.Point(985, 38);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(0, 24);
+            this.time.TabIndex = 58;
+            // 
             // iconPictureBox1
             // 
             this.iconPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -104,6 +131,15 @@
             this.iconPictureBox1.Size = new System.Drawing.Size(70, 55);
             this.iconPictureBox1.TabIndex = 2;
             this.iconPictureBox1.TabStop = false;
+            // 
+            // day
+            // 
+            this.day.AutoSize = true;
+            this.day.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.day.Location = new System.Drawing.Point(784, 41);
+            this.day.Name = "day";
+            this.day.Size = new System.Drawing.Size(0, 22);
+            this.day.TabIndex = 57;
             // 
             // label1
             // 
@@ -390,6 +426,11 @@
             this.label3.TabIndex = 45;
             this.label3.Text = "Quantite";
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // vente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -451,5 +492,9 @@
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn Quantity;
         private DataGridViewTextBoxColumn Total;
+        private Label second;
+        private Label time;
+        private Label day;
+        private System.Windows.Forms.Timer timer;
     }
 }

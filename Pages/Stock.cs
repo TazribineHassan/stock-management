@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -67,6 +68,7 @@ namespace stock_management.Pages
 
         private void Stock_Load(object sender, EventArgs e)
         {
+            timer.Start();
             stockpanel.Hide();
             Cursor.Current = Cursors.WaitCursor;
             getAllArticles();
@@ -151,6 +153,13 @@ namespace stock_management.Pages
         private void reload_btn_Click(object sender, EventArgs e)
         {
             getAllArticles();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            day.Text = DateTime.Now.DayOfWeek.ToString() + "  " + DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            time.Text = DateTime.Now.ToString("HH:mm");
+            second.Text = DateTime.Now.ToString("ss");
         }
     }
 }
