@@ -78,28 +78,31 @@
             // 
             // second
             // 
+            this.second.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.second.AutoSize = true;
             this.second.BackColor = System.Drawing.Color.Transparent;
             this.second.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.second.Location = new System.Drawing.Point(1047, 43);
+            this.second.Location = new System.Drawing.Point(1057, 43);
             this.second.Name = "second";
             this.second.Size = new System.Drawing.Size(0, 19);
             this.second.TabIndex = 5;
             // 
             // time
             // 
+            this.time.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.time.AutoSize = true;
             this.time.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.time.Location = new System.Drawing.Point(992, 39);
+            this.time.Location = new System.Drawing.Point(1002, 39);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(0, 24);
             this.time.TabIndex = 4;
             // 
             // day
             // 
+            this.day.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.day.AutoSize = true;
             this.day.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.day.Location = new System.Drawing.Point(791, 42);
+            this.day.Location = new System.Drawing.Point(801, 42);
             this.day.Name = "day";
             this.day.Size = new System.Drawing.Size(0, 22);
             this.day.TabIndex = 3;
