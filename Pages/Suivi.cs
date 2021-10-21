@@ -51,10 +51,10 @@ namespace stock_management.Pages
             foreach (var sell in sells)
             {
                 Article article = articleService.getArticle(sell.ArticleId);
-                dataGridViewSuivi.Rows.Add(sell.Id, article.Id, sell.Date.ToShortDateString(), article.Ref, article.Name, article.Price, sell.Quantity, sell.Total);
+                if (article != null)
+                    dataGridViewSuivi.Rows.Add(sell.Id, article.Id, sell.Date.ToShortDateString(), article.Ref, article.Name, article.Price, sell.Quantity, sell.Total);
             }
         }
-
         private void done_Click_1(object sender, EventArgs e)
         {
             // load sells
@@ -65,7 +65,8 @@ namespace stock_management.Pages
                 foreach (var sell in sells)
                 {
                     Article article = articleService.getArticle(sell.ArticleId);
-                    dataGridViewSuivi.Rows.Add(sell.Id, article.Id, sell.Date.ToShortDateString(), article.Ref, article.Name, article.Price, sell.Quantity, sell.Total);
+                    if (article != null)
+                        dataGridViewSuivi.Rows.Add(sell.Id, article.Id, sell.Date.ToShortDateString(), article.Ref, article.Name, article.Price, sell.Quantity, sell.Total);
                 }
             }
             else
