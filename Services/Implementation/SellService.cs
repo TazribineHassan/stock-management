@@ -70,10 +70,10 @@ namespace stock_management.Services.Implementation
         {
             return context.Sells.Where(Sell => Sell.Id == id).FirstOrDefault();
         }
-
+            
         public List<Sell> getSells()
         {
-            return context.Sells.Include("Article").ToList();
+            return context.Sells.Include("Article").Where( sell => !sell.Article!.Deleted).ToList();
         }
 
         public Sell updateSell(Sell sell)

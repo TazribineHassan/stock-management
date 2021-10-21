@@ -22,10 +22,14 @@ namespace stock_management.Services.Implementation
 
         public void deleteArticle(int id)
         {
-            Article article = context.Articles.Where(article => article.Id == id).FirstOrDefault();
+            Article article = context.Articles.Include("Sells").Where(article => article.Id == id).FirstOrDefault();
+
             if(article != null)
             {
-                context.Articles.Remove(article);
+                if(article.Sells.Count() == 0)
+                    context.Articles.Remove(article);
+                else
+                    article.Deleted = true;
             }
 
             context.SaveChanges();
@@ -39,7 +43,7 @@ namespace stock_management.Services.Implementation
 
         public List<Article> getArticles()
         {
-            return context.Articles.ToList();
+            return context.Articles.AsNoTracking().Where( article => !article.Deleted).ToList();
         }
 
         public List<Article> getArticlesByRef(string refe)

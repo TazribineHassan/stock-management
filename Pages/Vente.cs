@@ -2,6 +2,7 @@
 using stock_management.Services;
 using stock_management.Services.Implementation;
 using System.Globalization;
+using System.Linq;
 
 namespace stock_management.Pages
 {
@@ -14,18 +15,19 @@ namespace stock_management.Pages
 
         private Sell selectedSell;
 
+        List<Article> comboBoxList = new List<Article>();
 
         public vente()
         {
             InitializeComponent();
-
         }
 
         private void refresh()
         {
             // load articles
+            comboBoxList = articleService.getArticles();
             ArticlesComboBox.Items.Clear();
-            ArticlesComboBox.Items.AddRange(articleService.getArticles().ToArray());
+            ArticlesComboBox.Items.AddRange(comboBoxList.ToArray());
             ArticlesComboBox.SelectedItem = null;
             ArticlesComboBox.DisplayMember = "Name";
 
@@ -127,9 +129,11 @@ namespace stock_management.Pages
         private void Vente_Load(object sender, EventArgs e)
         {
             timer.Start();
+            groupBox1.Hide();
             Cursor.Current = Cursors.WaitCursor;
             QuantityTextBox.ValueChanged += QuantityTextBoxChanged;
             refresh();
+            groupBox1.Show();
             Cursor.Current = Cursors.Default;
         }
 
@@ -155,7 +159,8 @@ namespace stock_management.Pages
                     Quantity = int.Parse(selectedRow.Cells["Quantity"].Value.ToString()),
                     Total = float.Parse(selectedRow.Cells["Total"].Value.ToString())
                 };
-                ArticlesComboBox.SelectedItem = articleService.getArticles().Find(article => article.Id == selectedSell.Article.Id);
+                
+                ArticlesComboBox.SelectedItem = comboBoxList.Find(article => article.Id == selectedSell.Article.Id);
                 QuantityTextBox.Value = selectedSell.Quantity;
                 totalLabel.Text = selectedSell.Total.ToString();
 
